@@ -1,8 +1,17 @@
 <html>
-    <h1>
+    <h1 style="font-size:100px">
         <strong><%= @event.title %></strong>
+            <span class="label label-warning", style="font-size:20px">
+            <%= $TYPELIST[@event.typemeet.to_i] %>
+        </span>
     </h1>
-    
+
+    <h3>
+    <% if @event.urgency == 4%>
+        <i>Happening Now</i>
+    <% end %>
+    </h3>
+
     <p>
         <strong>Location:</strong>
         <%= @event.location %>
@@ -15,11 +24,8 @@
         <% end %>
     </p>
 
-    <% if @event.urgency == 4%>
-        <h3><i>Happening Now</i></h3>
-    <% end %>
-
-    <h5>Aii we out? Or Nah?</h5>
+    
+    <h4>Aii we out? Or Nah?</h4>
     <% @event.comments.each do |comment| %>
         <p>
         <strong><%= comment.commenter %></strong>
@@ -44,7 +50,6 @@
 
 
 
-    <%= link_to 'Back to Feed', events_path %>
     <%= link_to 'Delete Event', event_path(@event),
         method: :delete, data: {confirm: 'Are you sure?'} %></td>
 </html>

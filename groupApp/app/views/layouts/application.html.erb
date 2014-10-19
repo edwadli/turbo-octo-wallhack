@@ -7,9 +7,33 @@
   <%= javascript_include_tag :defaults%>
   <%= csrf_meta_tags %>
 </head>
+      
 <body>
 
-<%= yield %>
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#"></a>
+      <div class="nav-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", events_path %></li>
+          <li><%= link_to "Create", new_event_path %></li>
+          <li><%= link_to "Useless Button" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,42 +1,39 @@
 <html>
 <h1>Events Near You</h1>
-<p><%= link_to 'refresh', controller: 'events' %> 
-<%= link_to 'new event', new_event_path %></p>
 
 <h3>Urgent!!!!</h3>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Type of Meeting</th>
-        <th>Location</th>
-    </tr>
 
     <% @events.each do |event| %>
         <% if event.urgency == 4 %>
-        <tr>
-            <td><%= link_to event.title, event_path(event) %></td>
-            <td><%= $TYPELIST[event.typemeet.to_i] %></td>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+            <h2><%= link_to event.title, event_path(event) %></h2>
+                </div>
+                <div class="panel-body">
+                    <td><%= $TYPELIST[event.typemeet.to_i] %></td>
+                    @
             <td><%= event.location %></td>
-        </tr>
+                </div>
+            </div>
         <% end %>
     <% end %>
-</table>
-<h3>Later...</h3>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Type of Meeting</th>
-        <th>Location</th>
-    </tr>
 
+
+<h3>Later...</h3>
     <% @events.each do |event| %>
         <% if event.urgency != 4 %>
-        <tr>
-            <td><%= link_to event.title, event_path(event) %></td>
-            <td><%= $TYPELIST[event.typemeet.to_i] %></td>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+            <%= link_to event.title, event_path(event) %>
+                </div>
+                <div class="panel-body">
+                    <td><%= $TYPELIST[event.typemeet.to_i] %></td>
+                    @
             <td><%= event.location %></td>
-        </tr>
+                </div>
+            </div>
         <% end %>
     <% end %>
-</table>
+
+
 </html>
