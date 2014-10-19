@@ -1,6 +1,9 @@
 
 <h1>Events Near You</h1>
+<p><%= link_to 'refresh', controller: 'events' %> 
+<%= link_to 'new event', new_event_path %></p>
 
+<h3>Urgent!!!!</h3>
 <table>
     <tr>
         <th>Title</th>
@@ -9,10 +12,31 @@
     </tr>
 
     <% @events.each do |event| %>
+        <% if event.urgency == 4 %>
         <tr>
-            <td><%= event.title %></td>
-            <td><%= event.typemeet %></td>
+            <td><%= link_to event.title, event_path(event) %></td>
+            <td><%= @typelist[event.typemeet.to_i] %></td>
             <td><%= event.location %></td>
         </tr>
+        <% end %>
     <% end %>
 </table>
+<h3>Later...</h3>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Type of Meeting</th>
+        <th>Location</th>
+    </tr>
+
+    <% @events.each do |event| %>
+        <% if event.urgency != 4 %>
+        <tr>
+            <td><%= link_to event.title, event_path(event) %></td>
+            <td><%= @typelist[event.typemeet.to_i] %></td>
+            <td><%= event.location %></td>
+        </tr>
+        <% end %>
+    <% end %>
+</table>
+
