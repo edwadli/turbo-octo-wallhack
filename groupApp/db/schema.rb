@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141019094551) do
   end
 
   add_index "comments", ["event_id"], name: "index_comments_on_event_id"
+ActiveRecord::Schema.define(version: 20141019100959) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141019094551) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "datemeet"
   end
 
 end
