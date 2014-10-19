@@ -1,38 +1,45 @@
-<h1> Event Creator</h1>
+<head>
 
-<%= form_for :event, url: events_path do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-        <%= f.label :type, "Type of Meet" %></th>
-        <%= f.select :type,
-        @typelist.each_with_index.map{|name, i| [name, i]}, selected: @typelist.size-1 %>
-    <p>
+</head>
 
-    </p>
+<body>
+    <h1> Event Creator</h1>
 
-    <p>
+    <%= form_for :event, url: events_path do |f| %>
+        <p>
+            <%= f.label :title %><br>
+            <%= f.text_field :title %>
+        </p>
 
-    </p>
+        <p>
+            <%= f.label :type, "Type of Meet" %></th>
+            <%= f.select :type,
+            @typelist.each_with_index.map{|name, i| [name, i]}, selected: @typelist.size-1 %>
+        </p>
 
-    <p>
-        <%= f.label :urgency %><br>
-        <%= f.range_field :urgency, :min => 1, :max => 4, value: 4 %><br>
-        <%= f.label :urgency, "Later...........Immediate!!!" %><br>
-    </p>
- 
-    <p>
-        <%= f.label :location %><br>
-        <%= f.text_field :location %>
-    </p>
 
-    <p>
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
-    </p>
-   
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+        <p>
+
+        </p>
+
+        <p>
+            <%= f.label :urgency %><br>
+            <%= f.range_field :urgency, :min => 1, :max => 4, value: 4 %><br>
+            <%= f.label :urgency, "Later...........Immediate!!!" %><br>
+        </p>
+     
+        <p>
+            <%= f.label :location %><br>
+            <%= f.text_field :location %>
+        </p>
+
+        <p>
+            <%= f.label :description %><br>
+            <%= f.text_area :description %>
+        </p>
+       
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+</body>
