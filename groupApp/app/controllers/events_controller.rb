@@ -7,9 +7,12 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
     end
 
+    def index
+        @events = Event.all
+    end
+
     def create
         @event = Event.new(event_params)
-
         @event.save
         redirect_to @event
     end

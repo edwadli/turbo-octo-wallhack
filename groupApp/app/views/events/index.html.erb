@@ -1,0 +1,18 @@
+
+<h1>Events Near You</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Type of Meeting</th>
+        <th>Location</th>
+    </tr>
+
+    <% @events.each do |event| %>
+        <tr>
+            <td><%= event.title %></td>
+            <td><%= event.typemeet %></td>
+            <td><%= event.location %></td>
+        </tr>
+    <% end %>
+</table>
