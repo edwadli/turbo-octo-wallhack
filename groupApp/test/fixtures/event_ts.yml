@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  Title: MyText
+  Urgency: 
+  Location: MyText
+  Description: MyText
+
+two:
+  id: 
+  Title: MyText
+  Urgency: 
+  Location: MyText
+  Description: MyText
