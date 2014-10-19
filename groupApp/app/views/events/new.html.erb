@@ -12,8 +12,8 @@
         </p>
 
         <p>
-            <%= f.label :type, "Type of Meet" %></th>
-            <%= f.select :type,
+            <%= f.label :typemeet, "Type of Meet" %></th>
+            <%= f.select :typemeet,
             @typelist.each_with_index.map{|name, i| [name, i]}, selected: @typelist.size-1 %>
         </p>
 

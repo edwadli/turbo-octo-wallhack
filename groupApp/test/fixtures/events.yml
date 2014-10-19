@@ -2,14 +2,14 @@
 
 one:
   title: MyString
-  type: 1
+  typemeet: 1
   urgency: 1
   location: MyString
   description: MyString
 
 two:
   title: MyString
-  type: 1
+  typemeet: 1
   urgency: 1
   location: MyString
   description: MyString
