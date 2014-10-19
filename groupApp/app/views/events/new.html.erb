@@ -20,7 +20,7 @@
 
         <p>
             <%= f.label :datemeet, "Time of Meet" %></th>
-            <%= f.date_select :datemeet %>
+            <%= date_select('range', 'datemeet', :order => [:month, :day, :year])%>
         </p>
 
 
