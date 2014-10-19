@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     def new
         @typelist = ["Study", "Chill", "Sport", "Meal","Other"]
+        @event = Event.new
     end
 
     def show
@@ -8,13 +9,18 @@ class EventsController < ApplicationController
     end
 
     def index
-        @events = Event.all
+        @events = Event.all 
+        @typelist = ["Study", "Chill", "Sport", "Meal","Other"]
     end
 
     def create
         @event = Event.new(event_params)
-        @event.save
-        redirect_to @event
+
+        if @event.save
+            redirect_to @event
+        else
+            render 'new'
+        end
     end
     private
     def event_params
