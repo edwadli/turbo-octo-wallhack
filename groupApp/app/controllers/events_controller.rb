@@ -1,6 +1,7 @@
+
+$TYPELIST = ["Study", "Chill", "Sport", "Meal","Other"]
 class EventsController < ApplicationController
     def new
-        @typelist = ["Study", "Chill", "Sport", "Meal","Other"]
         @event = Event.new
     end
 
@@ -10,8 +11,21 @@ class EventsController < ApplicationController
 
     def index
         @events = Event.all 
-        @typelist = ["Study", "Chill", "Sport", "Meal","Other"]
     end
+
+    def update
+        @event = Event.find(params[:id])
+        @event.update(event_params)
+        redirect_to @event
+    end
+
+    def destroy
+        @event = Event.find(params[:id])
+        @event.destroy
+
+        redirect_to events_path
+    end
+
 
     def create
         @event = Event.new(event_params)

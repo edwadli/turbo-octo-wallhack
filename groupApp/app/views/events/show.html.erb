@@ -7,13 +7,44 @@
         <strong>Location:</strong>
         <%= @event.location %>
 
-        <%= @event.description %>
+        <%= form_for :event, url: event_path(@event), method:
+            :patch do |f| %>
+            <%= @event.description %></br>
+            <%= f.text_area :description %></br>
+            <%= f.submit %>
+        <% end %>
     </p>
 
-<% if @event.urgency == 4%>
+    <% if @event.urgency == 4%>
         <h3><i>Happening Now</i></h3>
     <% end %>
 
+    <h5>Aii we out? Or Nah?</h5>
+    <% @event.comments.each do |comment| %>
+        <p>
+        <strong><%= comment.commenter %></strong>
+        </p>
+        <p>
+        <%= comment.body %>
+        </p>
+    <% end %>
+    <%= form_for([@event, @event.comments.build]) do |f| %>
+        <p>
+            <%= f.label :commenter %><br>
+            <%= f.text_field :commenter %>
+        </p>
+        <p>
+            <%= f.label :body %><br>
+            <%= f.text_area :body %>
+        </p>
+        <p>
+            <%= f.submit %>
+        </p>
+    <% end %>
+
+
 
     <%= link_to 'Back to Feed', events_path %>
+    <%= link_to 'Delete Event', event_path(@event),
+        method: :delete, data: {confirm: 'Are you sure?'} %></td>
 </html>

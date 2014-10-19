@@ -15,7 +15,7 @@
         <% if event.urgency == 4 %>
         <tr>
             <td><%= link_to event.title, event_path(event) %></td>
-            <td><%= @typelist[event.typemeet.to_i] %></td>
+            <td><%= $TYPELIST[event.typemeet.to_i] %></td>
             <td><%= event.location %></td>
         </tr>
         <% end %>
@@ -33,7 +33,7 @@
         <% if event.urgency != 4 %>
         <tr>
             <td><%= link_to event.title, event_path(event) %></td>
-            <td><%= @typelist[event.typemeet.to_i] %></td>
+            <td><%= $TYPELIST[event.typemeet.to_i] %></td>
             <td><%= event.location %></td>
         </tr>
         <% end %>
