@@ -1,5 +1,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
   </head>
 
 <body>
@@ -33,7 +35,9 @@
 
         <p>
             <%= f.label :datemeet, "Time of Meet" %></th>
-            <%= date_select('range', 'datemeet', :order => [:month, :day, :year])%>
+            <%= f.text_field :datemeet, :id => 'datemeetid' %>
+            <!--
+            <%= date_select('range', 'datemeet', :order => [:month, :day, :year])%> -->
         </p>
 
 
