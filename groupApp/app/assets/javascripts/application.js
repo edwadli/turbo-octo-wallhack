@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery-ui.multidatespicker
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.ui.all
 //= require_tree .
 
 $(function (){
-        $('#datemeetid').datepicker();
+        $('#datemeetid').multiDatesPicker()
 });
